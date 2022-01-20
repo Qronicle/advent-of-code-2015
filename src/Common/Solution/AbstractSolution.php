@@ -16,12 +16,18 @@ abstract class AbstractSolution
     {
         $method = 'solvePart' . $part;
         $this->rawInput = file_get_contents($inputFilename);
+        $this->init();
         return $this->$method();
     }
 
     abstract protected function solvePart1(): string;
 
     abstract protected function solvePart2(): string;
+
+    protected function init():void
+    {
+        // @todo override when necessary
+    }
 
     protected function getInputLines(): array
     {
